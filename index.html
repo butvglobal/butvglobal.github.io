@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BU TV Global | Inform • Educate • Inspire</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #071b33;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #f4b400;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #f4b400;
+    }
+
+    .hero {
+      min-height: 72vh;
+      background:
+        linear-gradient(rgba(4, 20, 39, 0.82), rgba(4, 20, 39, 0.82)),
+        linear-gradient(135deg, #0b3767, #071b33);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #f4b400;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: #e2e8f0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 5px;
+      border-radius: 6px;
+      background: #f4b400;
+      color: #071b33;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #071b33;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    .card-image {
+      height: 170px;
+      background: #dce4ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #617080;
+      font-weight: bold;
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .card h3 {
+      color: #071b33;
+      margin-bottom: 10px;
+    }
+
+    .programs {
+      background: #eef2f6;
+    }
+
+    .store {
+      background: white;
+    }
+
+    .book {
+      text-align: center;
+    }
+
+    .book-cover {
+      height: 250px;
+      background: linear-gradient(135deg, #071b33, #174d7e);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      font-size: 1.35rem;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #b57d00;
+      margin: 12px 0;
+    }
+
+    .coming {
+      display: inline-block;
+      background: #e8edf2;
+      color: #555;
+      padding: 9px 16px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .contact {
+      background: #071b33;
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-title h2 {
+      color: white;
+    }
+
+    .contact .section-title p {
+      color: #ccd6e0;
+    }
+
+    footer {
+      background: #041222;
+      color: #aebccc;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+      }
+
+      section {
+        padding: 55px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <div class="logo">
+      BU TV <span>GLOBAL</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#ebooks">eBooks</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <h1>BU TV <span>GLOBAL</span></h1>
+
+    <h2>Inform • Educate • Inspire</h2>
+
+    <p>
+      A global digital media platform bringing you insightful
+      conversations, educational content, inspiring stories,
+      programs and publications.
+    </p>
+
+    <a class="button" href="#programs">
+      Explore Programs
+    </a>
+
+    <a class="button secondary" href="#ebooks">
+      Visit eBook Store
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>About BU TV Global</h2>
+
+      <p>
+        Media with purpose. Content with global reach.
+      </p>
+
+    </div>
+
+    <div class="about-content">
+
+      <p>
+        BU TV Global is a digital media platform dedicated to
+        informative, educational and inspirational programming.
+
+        Our goal is to connect audiences with meaningful
+        conversations, knowledge, ideas and stories that can
+        make a positive difference in communities around the world.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="programs" id="programs">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Programs & Videos</h2>
+
+      <p>Discover content from BU TV Global.</p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-image">
+          VIDEO / PROGRAM IMAGE
+        </div>
+
+        <div class="card-content">
+
+          <h3>BU TV Conversations</h3>
+
+          <p>
+            Interviews and conversations with people
+            sharing knowledge, experiences and ideas.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-image">
+          VIDEO / PROGRAM IMAGE
+        </div>
+
+        <div class="card-content">
+
+          <h3>Education & Development</h3>
+
+          <p>
+            Educational programs focused on learning,
+            development and opportunities.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-image">
+          VIDEO / PROGRAM IMAGE
+        </div>
+
+        <div class="card-content">
+
+          <h3>Global Stories</h3>
+
+          <p>
+            Stories and perspectives connecting communities
+            across borders.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="store" id="ebooks">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>BU TV Global eBook Store</h2>
+
+      <p>
+        Explore books and digital publications from BU TV Global.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card book">
+
+        <div class="book-cover">
+          YOUR FIRST eBOOK
+        </div>
+
+        <div class="card-content">
+
+          <h3>eBook Title</h3>
+
+          <p>
+            A short description of your book will appear here.
+          </p>
+
+          <div class="price">
+            Price coming soon
+          </div>
+
+          <span class="coming">
+            Buy Now — Coming Soon
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="card book">
+
+        <div class="book-cover">
+          MORE TITLES COMING
+        </div>
+
+        <div class="card-content">
+
+          <h3>Future Publication</h3>
+
+          <p>
+            Additional BU TV Global publications can be added here.
+          </p>
+
+          <div class="price">
+            Coming soon
+          </div>
+
+          <span class="coming">
+            Coming Soon
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Connect With BU TV Global</h2>
+
+      <p>
+        Follow our programs, publications and latest updates.
+      </p>
+
+    </div>
+
+    <p>
+      Official social media, YouTube and contact information
+      will be added here.
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>
+    &copy; 2026 BU TV Global. All Rights Reserved.
+  </p>
+
+</footer>
+
+</body>
+</html>
